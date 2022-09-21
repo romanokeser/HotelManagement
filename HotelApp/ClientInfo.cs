@@ -93,5 +93,23 @@ namespace HotelApp
             conn.Close();
             Populate();
         }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            string query = "SELECT * FROM Client_tbl WHERE ClientName = '" + clientSearch.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            ClientGridView.DataSource = ds.Tables[0];
+
+            conn.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Populate();
+        }
     }
 }
