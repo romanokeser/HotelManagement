@@ -1,0 +1,12 @@
+F:\WindowsForm\HotelApp\HotelApp\bin\Debug\HotelApp.exe.config
+F:\WindowsForm\HotelApp\HotelApp\bin\Debug\HotelApp.exe
+F:\WindowsForm\HotelApp\HotelApp\bin\Debug\HotelApp.pdb
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.csprojAssemblyReference.cache
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.Properties.Resources.resources
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.csproj.GenerateResource.cache
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.exe
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.pdb
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.MainForm.resources
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.LoginForm.resources
+F:\WindowsForm\HotelApp\HotelApp\bin\Debug\Guna.UI2.dll
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.csproj.CopyComplete
