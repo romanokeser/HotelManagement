@@ -45,3 +45,5 @@ F:\WindowsForm\HotelApp\HotelApp\bin\Debug\System.Threading.AccessControl.xml
 F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.ClientInfo.resources
 F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.csproj.Fody.CopyLocal.cache
 F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.StaffInfo.resources
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.RoomInfo.resources
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.ReservationInfo.resources
