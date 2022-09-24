@@ -63,6 +63,7 @@
             this.staffBtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.staffBtn.Size = new System.Drawing.Size(131, 115);
             this.staffBtn.TabIndex = 1;
+            this.staffBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
             // label2
             // 
@@ -96,6 +97,7 @@
             this.clientBtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.clientBtn.Size = new System.Drawing.Size(131, 115);
             this.clientBtn.TabIndex = 3;
+            this.clientBtn.Click += new System.EventHandler(this.clientBtn_Click);
             // 
             // label4
             // 
@@ -119,6 +121,7 @@
             this.roomsBtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.roomsBtn.Size = new System.Drawing.Size(131, 115);
             this.roomsBtn.TabIndex = 5;
+            this.roomsBtn.Click += new System.EventHandler(this.roomsBtn_Click);
             // 
             // label5
             // 
@@ -142,6 +145,7 @@
             this.reservationBtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.reservationBtn.Size = new System.Drawing.Size(131, 115);
             this.reservationBtn.TabIndex = 7;
+            this.reservationBtn.Click += new System.EventHandler(this.reservationBtn_Click);
             // 
             // logoutBtn
             // 

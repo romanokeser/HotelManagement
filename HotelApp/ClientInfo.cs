@@ -40,7 +40,8 @@ namespace HotelApp
 
         private void ClientInfo_Load(object sender, EventArgs e)
         {
-            dateLabel.Text = DateTime.Now.ToLongDateString();
+            //dateLabel.Text = DateTime.Now.ToLongDateString();
+            dateLabel.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
             Populate();
         }
 

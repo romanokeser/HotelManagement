@@ -58,6 +58,7 @@
             this.passTexbox.Name = "passTexbox";
             this.passTexbox.Size = new System.Drawing.Size(191, 20);
             this.passTexbox.TabIndex = 2;
+            this.passTexbox.UseSystemPasswordChar = true;
             // 
             // loginBtn
             // 
