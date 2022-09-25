@@ -13,6 +13,8 @@ namespace HotelApp
 {
     public partial class RoomInfo : Form
     {
+        DateTime today;
+
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
 
         private Font boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
@@ -30,6 +32,11 @@ namespace HotelApp
 
             RoomGridView.CellClick += RoomGridView_CellClick;
             editBtn.Enabled = false;
+        }
+
+        private void RoomInfo_Load(object sender, EventArgs e)
+        {
+            label3.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
         }
 
         /// Show content from grid view to textfields
@@ -169,5 +176,7 @@ namespace HotelApp
             mainForm.Show();
             this.Hide();
         }
+
+
     }
 }

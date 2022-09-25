@@ -193,25 +193,18 @@ namespace HotelApp
 
         private void editRoomBtn_Click(object sender, EventArgs e)
         {
-            if (reservationId.Text == "")
-            {
-                MessageBox.Show("Empty ResId, Enter the reservation ID");
-            }
-            else
-            {
-                conn.Open();
+            conn.Open();
 
-                string query = "UPDATE Reservation_tbl SET Client = '" + clientNameCombobox.SelectedValue.ToString()
-                    + "', ResId = '" + roomIdCombobox.SelectedValue.ToString()
-                    + "', DateIn= '" + dateIn.Value.ToString()
-                    + "', DateOut= '" + dateOut.Value.ToString()
-                    + "' WHERE ResId = " + reservationId.Text + ";";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Reservation succesfully edited");
-                conn.Close();
-                Populate();
-            }
+            string query = "UPDATE Reservation_tbl SET Client = '" + clientNameCombobox.SelectedValue.ToString()
+                + "', ResId = '" + roomIdCombobox.SelectedValue.ToString()
+                + "', DateIn= '" + dateIn.Value.ToString()
+                + "', DateOut= '" + dateOut.Value.ToString()
+                + "' WHERE ResId = " + reservationId.Text + ";";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Reservation succesfully edited");
+            conn.Close();
+            Populate();
         }
 
         private void roomSearchBtn_Click(object sender, EventArgs e)
