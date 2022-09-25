@@ -53,6 +53,8 @@
             this.backBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.roomsNumberLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.roomsState = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.RoomGridView)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
@@ -83,7 +85,7 @@
             // 
             // roomPhone
             // 
-            this.roomPhone.Location = new System.Drawing.Point(16, 152);
+            this.roomPhone.Location = new System.Drawing.Point(16, 206);
             this.roomPhone.Name = "roomPhone";
             this.roomPhone.Size = new System.Drawing.Size(167, 20);
             this.roomPhone.TabIndex = 3;
@@ -142,6 +144,9 @@
             // 
             // RoomGridView
             // 
+            this.RoomGridView.AllowUserToAddRows = false;
+            this.RoomGridView.AllowUserToDeleteRows = false;
+            this.RoomGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.RoomGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -318,17 +323,36 @@
             // roomsNumberLabel
             // 
             this.roomsNumberLabel.AutoSize = true;
-            this.roomsNumberLabel.Location = new System.Drawing.Point(13, 136);
+            this.roomsNumberLabel.Location = new System.Drawing.Point(13, 190);
             this.roomsNumberLabel.Name = "roomsNumberLabel";
             this.roomsNumberLabel.Size = new System.Drawing.Size(113, 13);
             this.roomsNumberLabel.TabIndex = 49;
             this.roomsNumberLabel.Text = "Room\'s phone number";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "State";
+            // 
+            // roomsState
+            // 
+            this.roomsState.Enabled = false;
+            this.roomsState.Location = new System.Drawing.Point(16, 145);
+            this.roomsState.Name = "roomsState";
+            this.roomsState.Size = new System.Drawing.Size(167, 20);
+            this.roomsState.TabIndex = 52;
             // 
             // RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.roomsState);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.roomsNumberLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.backBtn);
@@ -381,5 +405,7 @@
         private Guna.UI2.WinForms.Guna2Button backBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label roomsNumberLabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox roomsState;
     }
 }

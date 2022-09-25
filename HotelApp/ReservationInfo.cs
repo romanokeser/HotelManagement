@@ -16,10 +16,21 @@ namespace HotelApp
         DateTime today;
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
 
+        private Font boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
+        private Font regularFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
+
+        private bool _isTableSelected;
+
         public ReservationInfo()
         {
             InitializeComponent();
             Populate();
+            editBtn.Enabled = false;
+            ReservationGridView.CellClick += ReservationGridView_CellContentClick;
+
+            //Defines columns width
+            ReservationGridView.Columns[0].Width = 50;
+            ReservationGridView.Columns[2].Width = 50;
         }
 
         private void ReservationInfo_Load(object sender, EventArgs e)
@@ -28,7 +39,7 @@ namespace HotelApp
             FillRoomCombo();
             FillClientCombo();
             Populate();
-            dateLabel.Text = DateTime.Today.Day.ToString()+ "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
+            dateLabel.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
         }
 
         private void dateIn_ValueChanged(object sender, EventArgs e)
@@ -146,6 +157,17 @@ namespace HotelApp
         private void ReservationGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             reservationId.Text = ReservationGridView.SelectedRows[0].Cells[0].Value.ToString();
+            clientNameCombobox.Text = ReservationGridView.SelectedRows[0].Cells[1].Value.ToString();
+            roomIdCombobox.Text = ReservationGridView.SelectedRows[0].Cells[2].Value.ToString();
+
+            //dateIn.Value = ReservationGridView.SelectedRows[0].Cells[3]
+
+            dateIn.Value = Convert.ToDateTime(ReservationGridView.SelectedRows[0].Cells[3].Value);
+            dateOut.Value = Convert.ToDateTime(ReservationGridView.SelectedRows[0].Cells[4].Value);
+
+            _isTableSelected = true;
+            editBtn.Enabled = true;
+
         }
 
         private void deleteRoomBtn_Click(object sender, EventArgs e)
@@ -219,20 +241,37 @@ namespace HotelApp
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            clientNameLabel.Font = regularFont;
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Reservation_tbl VALUES('"
-                //+ reservationId.Text + "','"
-                + clientNameCombobox.SelectedValue.ToString() + "','"
-                + roomIdCombobox.SelectedValue.ToString() + "','"
-                + dateIn.Value + "','"
-                + dateOut.Value + "')", conn);
+            if (string.IsNullOrEmpty(clientNameCombobox.Text))
+            {
+                clientNameLabel.Font = boldFont;
+                return;
+            }
+            else
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Reservation_tbl VALUES('"
+                    //+ reservationId.Text + "','"
+                    + clientNameCombobox.SelectedValue.ToString() + "','"
+                    + roomIdCombobox.SelectedValue.ToString() + "','"
+                    + dateIn.Value + "','"
+                    + dateOut.Value + "')", conn);
 
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Reservation added succesfully");
-            conn.Close();
-            UpdateRoomState();
-            Populate();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Reservation added succesfully");
+                    conn.Close();
+                    UpdateRoomState();
+                    Populate();
+                }
+                catch (Exception)
+                {
+                    conn.Close();
+                    clientNameLabel.Font = boldFont;
+                }
+            }
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -244,7 +283,6 @@ namespace HotelApp
             else
             {
                 conn.Open();
-
                 string query = "UPDATE Reservation_tbl SET Client = '" + clientNameCombobox.SelectedValue.ToString()
                     //+ "', ResId = '" + roomIdCombobox.SelectedValue.ToString()
                     + "', DateIn= '" + dateIn.Value.ToString()

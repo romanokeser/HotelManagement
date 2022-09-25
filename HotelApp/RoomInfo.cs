@@ -37,6 +37,7 @@ namespace HotelApp
         {
             roomNumber.Text = RoomGridView.SelectedRows[0].Cells[0].Value.ToString();
             roomPhone.Text = RoomGridView.SelectedRows[0].Cells[1].Value.ToString();
+            roomsState.Text = RoomGridView.SelectedRows[0].Cells[2].Value.ToString();
             _isTableSelected = true;
             editBtn.Enabled = true;
         }

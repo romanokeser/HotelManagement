@@ -47,7 +47,7 @@
             this.clientNameCombobox = new System.Windows.Forms.ComboBox();
             this.roomIdCombobox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.clientNameLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.addBtn = new Guna.UI2.WinForms.Guna2Button();
             this.editBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 53);
+            this.panel1.Size = new System.Drawing.Size(951, 53);
             this.panel1.TabIndex = 19;
             // 
             // dateLabel
@@ -99,10 +99,14 @@
             // 
             // dateIn
             // 
+            this.dateIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateIn.Location = new System.Drawing.Point(109, 251);
+            this.dateIn.MaxDate = new System.DateTime(2025, 1, 31, 0, 0, 0, 0);
+            this.dateIn.MinDate = new System.DateTime(2022, 1, 31, 0, 0, 0, 0);
             this.dateIn.Name = "dateIn";
-            this.dateIn.Size = new System.Drawing.Size(200, 20);
+            this.dateIn.Size = new System.Drawing.Size(105, 20);
             this.dateIn.TabIndex = 23;
+            this.dateIn.Value = new System.DateTime(2022, 1, 31, 0, 0, 0, 0);
             this.dateIn.ValueChanged += new System.EventHandler(this.dateIn_ValueChanged);
             // 
             // label1
@@ -127,9 +131,10 @@
             // 
             // dateOut
             // 
+            this.dateOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOut.Location = new System.Drawing.Point(109, 308);
             this.dateOut.Name = "dateOut";
-            this.dateOut.Size = new System.Drawing.Size(200, 20);
+            this.dateOut.Size = new System.Drawing.Size(105, 20);
             this.dateOut.TabIndex = 25;
             this.dateOut.ValueChanged += new System.EventHandler(this.dateOut_ValueChanged);
             // 
@@ -176,6 +181,9 @@
             // 
             // ReservationGridView
             // 
+            this.ReservationGridView.AllowUserToAddRows = false;
+            this.ReservationGridView.AllowUserToDeleteRows = false;
+            this.ReservationGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.ReservationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -197,10 +205,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ReservationGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.ReservationGridView.GridColor = System.Drawing.Color.Black;
-            this.ReservationGridView.Location = new System.Drawing.Point(322, 152);
+            this.ReservationGridView.Location = new System.Drawing.Point(234, 152);
             this.ReservationGridView.Name = "ReservationGridView";
+            this.ReservationGridView.ReadOnly = true;
             this.ReservationGridView.RowHeadersVisible = false;
-            this.ReservationGridView.Size = new System.Drawing.Size(478, 472);
+            this.ReservationGridView.Size = new System.Drawing.Size(705, 472);
             this.ReservationGridView.TabIndex = 27;
             this.ReservationGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.ReservationGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -215,7 +224,7 @@
             this.ReservationGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.ReservationGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ReservationGridView.ThemeStyle.HeaderStyle.Height = 24;
-            this.ReservationGridView.ThemeStyle.ReadOnly = false;
+            this.ReservationGridView.ThemeStyle.ReadOnly = true;
             this.ReservationGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.ReservationGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ReservationGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,14 +259,14 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "ID";
             // 
-            // label7
+            // clientNameLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 136);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 13);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Client\'s Name";
+            this.clientNameLabel.AutoSize = true;
+            this.clientNameLabel.Location = new System.Drawing.Point(19, 136);
+            this.clientNameLabel.Name = "clientNameLabel";
+            this.clientNameLabel.Size = new System.Drawing.Size(71, 13);
+            this.clientNameLabel.TabIndex = 41;
+            this.clientNameLabel.Text = "Client\'s Name";
             // 
             // label8
             // 
@@ -332,13 +341,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 665);
+            this.ClientSize = new System.Drawing.Size(951, 665);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.clientNameLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.roomIdCombobox);
             this.Controls.Add(this.clientNameCombobox);
@@ -383,7 +392,7 @@
         private System.Windows.Forms.ComboBox clientNameCombobox;
         private System.Windows.Forms.ComboBox roomIdCombobox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label clientNameLabel;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button addBtn;
         private Guna.UI2.WinForms.Guna2Button editBtn;
