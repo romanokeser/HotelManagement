@@ -28,66 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.userTextbox = new System.Windows.Forms.TextBox();
             this.passTexbox = new System.Windows.Forms.TextBox();
-            this.loginBtn = new System.Windows.Forms.Button();
-            this.closeAppBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.loginBtnNew = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Yi Baiti", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 55);
+            this.label1.Size = new System.Drawing.Size(86, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hotel App";
+            this.label1.Text = "Login";
             // 
             // userTextbox
             // 
-            this.userTextbox.Location = new System.Drawing.Point(32, 153);
+            this.userTextbox.Location = new System.Drawing.Point(30, 92);
             this.userTextbox.Name = "userTextbox";
             this.userTextbox.Size = new System.Drawing.Size(191, 20);
             this.userTextbox.TabIndex = 1;
             // 
             // passTexbox
             // 
-            this.passTexbox.Location = new System.Drawing.Point(32, 212);
+            this.passTexbox.Location = new System.Drawing.Point(30, 141);
             this.passTexbox.Name = "passTexbox";
             this.passTexbox.Size = new System.Drawing.Size(191, 20);
             this.passTexbox.TabIndex = 2;
             this.passTexbox.UseSystemPasswordChar = true;
             // 
-            // loginBtn
+            // label2
             // 
-            this.loginBtn.Location = new System.Drawing.Point(66, 326);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(128, 61);
-            this.loginBtn.TabIndex = 3;
-            this.loginBtn.Text = "Login";
-            this.loginBtn.UseVisualStyleBackColor = true;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Yi Baiti", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Username";
             // 
-            // closeAppBtn
+            // label3
             // 
-            this.closeAppBtn.BackColor = System.Drawing.Color.DarkRed;
-            this.closeAppBtn.Location = new System.Drawing.Point(217, 406);
-            this.closeAppBtn.Name = "closeAppBtn";
-            this.closeAppBtn.Size = new System.Drawing.Size(29, 33);
-            this.closeAppBtn.TabIndex = 4;
-            this.closeAppBtn.Text = "X";
-            this.closeAppBtn.UseVisualStyleBackColor = false;
-            this.closeAppBtn.Click += new System.EventHandler(this.closeAppBtn_Click);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Yi Baiti", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(26, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Password";
+            // 
+            // loginBtnNew
+            // 
+            this.loginBtnNew.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtnNew.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.loginBtnNew.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.loginBtnNew.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.loginBtnNew.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.loginBtnNew.ForeColor = System.Drawing.Color.White;
+            this.loginBtnNew.Location = new System.Drawing.Point(129, 192);
+            this.loginBtnNew.Name = "loginBtnNew";
+            this.loginBtnNew.Size = new System.Drawing.Size(92, 21);
+            this.loginBtnNew.TabIndex = 7;
+            this.loginBtnNew.Text = "Login";
+            this.loginBtnNew.Click += new System.EventHandler(this.loginBtnNew_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.DarkRed;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(150, 230);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(71, 21);
+            this.guna2Button1.TabIndex = 8;
+            this.guna2Button1.Text = "Exit";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 450);
-            this.Controls.Add(this.closeAppBtn);
-            this.Controls.Add(this.loginBtn);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(257, 301);
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.loginBtnNew);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.passTexbox);
             this.Controls.Add(this.userTextbox);
             this.Controls.Add(this.label1);
@@ -105,8 +144,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox userTextbox;
         private System.Windows.Forms.TextBox passTexbox;
-        private System.Windows.Forms.Button loginBtn;
-        private System.Windows.Forms.Button closeAppBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button loginBtnNew;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
 

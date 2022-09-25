@@ -49,6 +49,7 @@
             this.editBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.staffPassTextbox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
@@ -250,11 +251,22 @@
             this.staffPassTextbox.Size = new System.Drawing.Size(160, 20);
             this.staffPassTextbox.TabIndex = 23;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 580);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 42);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // StaffInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.staffPassTextbox);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox staffPassTextbox;
+        private System.Windows.Forms.Button button1;
     }
 }

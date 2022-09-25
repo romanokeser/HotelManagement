@@ -209,5 +209,12 @@ namespace HotelApp
         {
             Populate();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace HotelApp
 {
     public partial class SplashForm : Form
     {
-        private int startPoint = 0;
+        private float startPoint = 0;
 
         public SplashForm()
         {
@@ -21,8 +21,8 @@ namespace HotelApp
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            startPoint += 6;
-            splashPB.Value = startPoint;
+            startPoint += 4.5f;
+            splashPB.Value = (int)startPoint;
 
             if (splashPB.Value == 100)
             {
@@ -36,6 +36,11 @@ namespace HotelApp
         private void SplashForm_Load(object sender, EventArgs e)
         {
             this.timer1.Start();
+        }
+
+        private void splashPB_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

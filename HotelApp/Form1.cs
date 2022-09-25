@@ -21,6 +21,15 @@ namespace HotelApp
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void loginBtnNew_Click(object sender, EventArgs e)
+        {
             string loginSqlString = "SELECT COUNT(*) FROM Staff_tbl WHERE StaffName='" + userTextbox.Text + "' AND StaffPassword='" + passTexbox.Text + "'";
             conn.Open();
 
@@ -28,7 +37,7 @@ namespace HotelApp
             DataTable dt = new DataTable();
             sda.Fill(dt);
 
-            if (dt.Rows[0][0].ToString() ==  "1")
+            if (dt.Rows[0][0].ToString() == "1")
             {
                 MainForm mf = new MainForm();
                 mf.Show();
@@ -43,7 +52,7 @@ namespace HotelApp
             conn.Close();
         }
 
-        private void closeAppBtn_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

@@ -14,7 +14,7 @@ namespace HotelApp
     public partial class RoomInfo : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
-        
+
 
         public RoomInfo()
         {
@@ -31,8 +31,13 @@ namespace HotelApp
             else
                 isFree = "busy";
 
+            //if (noRadio.Checked == true)
+            //    isFree = "free";
+            //else
+            //    isFree = "busy";
+
             SqlCommand cmd = new SqlCommand("INSERT INTO Room_tbl VALUES('"
-                + roomNumber.Text + "','"
+                //+ roomNumber.Text + "','"
                 + roomPhone.Text + "','"
                 + isFree + "')", conn);
 
@@ -97,20 +102,36 @@ namespace HotelApp
 
         private void roomSearchBtn_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            string query = "SELECT * FROM Room_tbl WHERE RoomId = '" + roomSearchTextboox.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, conn);
-            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-            var ds = new DataSet();
-            da.Fill(ds);
-            RoomGridView.DataSource = ds.Tables[0];
+            RoomsDropbox.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
+            if (RoomsDropbox.SelectedItem != null)
+            {
+                conn.Open();
+                string query = "SELECT * FROM Room_tbl WHERE RoomFree = '" + RoomsDropbox.SelectedItem.ToString() + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                var ds = new DataSet();
+                da.Fill(ds);
+                RoomGridView.DataSource = ds.Tables[0];
+                conn.Close();
+            }
+            else
+            {
+                RoomsDropbox.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
+            }
+            
 
-            conn.Close();
         }
 
         private void refreshImageBtn_Click(object sender, EventArgs e)
         {
             Populate();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
         }
     }
 }

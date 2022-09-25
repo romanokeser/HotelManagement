@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.yesRadio = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.guna2CustomRadioButton2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.noRadio = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.deleteRoomBtn = new System.Windows.Forms.Button();
             this.editRoomBtn = new System.Windows.Forms.Button();
             this.addRoomBtn = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.refreshImageBtn = new System.Windows.Forms.PictureBox();
             this.roomSearchBtn = new System.Windows.Forms.Button();
             this.roomSearchTextboox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.RoomsDropbox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.RoomGridView)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
@@ -121,21 +123,21 @@
             this.yesRadio.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.yesRadio.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // guna2CustomRadioButton2
+            // noRadio
             // 
-            this.guna2CustomRadioButton2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomRadioButton2.CheckedState.BorderThickness = 0;
-            this.guna2CustomRadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomRadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(212, 412);
-            this.guna2CustomRadioButton2.Name = "guna2CustomRadioButton2";
-            this.guna2CustomRadioButton2.Size = new System.Drawing.Size(22, 24);
-            this.guna2CustomRadioButton2.TabIndex = 7;
-            this.guna2CustomRadioButton2.Text = "noRadio";
-            this.guna2CustomRadioButton2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CustomRadioButton2.UncheckedState.BorderThickness = 2;
-            this.guna2CustomRadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2CustomRadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.noRadio.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.noRadio.CheckedState.BorderThickness = 0;
+            this.noRadio.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.noRadio.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.noRadio.Location = new System.Drawing.Point(212, 412);
+            this.noRadio.Name = "noRadio";
+            this.noRadio.Size = new System.Drawing.Size(22, 24);
+            this.noRadio.TabIndex = 7;
+            this.noRadio.Text = "noRadio";
+            this.noRadio.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.noRadio.UncheckedState.BorderThickness = 2;
+            this.noRadio.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.noRadio.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
             // deleteRoomBtn
             // 
@@ -229,14 +231,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 165);
+            this.panel1.Size = new System.Drawing.Size(800, 53);
             this.panel1.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(494, 126);
+            this.label3.Location = new System.Drawing.Point(601, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 1;
@@ -246,7 +248,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(190, 55);
+            this.label4.Location = new System.Drawing.Point(5, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(308, 39);
             this.label4.TabIndex = 0;
@@ -255,7 +257,7 @@
             // refreshImageBtn
             // 
             this.refreshImageBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshImageBtn.Image")));
-            this.refreshImageBtn.Location = new System.Drawing.Point(627, 171);
+            this.refreshImageBtn.Location = new System.Drawing.Point(740, 171);
             this.refreshImageBtn.Name = "refreshImageBtn";
             this.refreshImageBtn.Size = new System.Drawing.Size(24, 30);
             this.refreshImageBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -266,7 +268,7 @@
             // roomSearchBtn
             // 
             this.roomSearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomSearchBtn.Location = new System.Drawing.Point(520, 171);
+            this.roomSearchBtn.Location = new System.Drawing.Point(633, 171);
             this.roomSearchBtn.Name = "roomSearchBtn";
             this.roomSearchBtn.Size = new System.Drawing.Size(89, 30);
             this.roomSearchBtn.TabIndex = 21;
@@ -285,7 +287,7 @@
             this.roomSearchTextboox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.roomSearchTextboox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.roomSearchTextboox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.roomSearchTextboox.Location = new System.Drawing.Point(335, 171);
+            this.roomSearchTextboox.Location = new System.Drawing.Point(448, 171);
             this.roomSearchTextboox.Name = "roomSearchTextboox";
             this.roomSearchTextboox.PasswordChar = '\0';
             this.roomSearchTextboox.PlaceholderText = "";
@@ -293,11 +295,35 @@
             this.roomSearchTextboox.Size = new System.Drawing.Size(161, 30);
             this.roomSearchTextboox.TabIndex = 20;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 586);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 42);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // RoomsDropbox
+            // 
+            this.RoomsDropbox.FormattingEnabled = true;
+            this.RoomsDropbox.Items.AddRange(new object[] {
+            "Free",
+            "Busy"});
+            this.RoomsDropbox.Location = new System.Drawing.Point(287, 171);
+            this.RoomsDropbox.Name = "RoomsDropbox";
+            this.RoomsDropbox.Size = new System.Drawing.Size(91, 21);
+            this.RoomsDropbox.TabIndex = 41;
+            this.RoomsDropbox.Text = "Rooms";
+            // 
             // RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.RoomsDropbox);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.refreshImageBtn);
             this.Controls.Add(this.roomSearchBtn);
             this.Controls.Add(this.roomSearchTextboox);
@@ -306,7 +332,7 @@
             this.Controls.Add(this.deleteRoomBtn);
             this.Controls.Add(this.editRoomBtn);
             this.Controls.Add(this.addRoomBtn);
-            this.Controls.Add(this.guna2CustomRadioButton2);
+            this.Controls.Add(this.noRadio);
             this.Controls.Add(this.yesRadio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -315,6 +341,7 @@
             this.Controls.Add(this.roomNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RoomInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RoomInfo";
             ((System.ComponentModel.ISupportInitialize)(this.RoomGridView)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -334,7 +361,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2CustomRadioButton yesRadio;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton noRadio;
         private System.Windows.Forms.Button deleteRoomBtn;
         private System.Windows.Forms.Button editRoomBtn;
         private System.Windows.Forms.Button addRoomBtn;
@@ -345,5 +372,7 @@
         private System.Windows.Forms.PictureBox refreshImageBtn;
         private System.Windows.Forms.Button roomSearchBtn;
         private Guna.UI2.WinForms.Guna2TextBox roomSearchTextboox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox RoomsDropbox;
     }
 }
