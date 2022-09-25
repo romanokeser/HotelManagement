@@ -19,18 +19,25 @@ namespace HotelApp
         private Font boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
         private Font regularFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
 
-        private bool _isTableSelected;
-
         public ReservationInfo()
         {
             InitializeComponent();
             Populate();
+
+            searchBtn.Enabled = false;
             editBtn.Enabled = false;
+
             ReservationGridView.CellClick += ReservationGridView_CellContentClick;
+            reservationSearchbox.MouseClick += ReservationSearchbox_MouseClick;
 
             //Defines columns width
             ReservationGridView.Columns[0].Width = 50;
             ReservationGridView.Columns[2].Width = 50;
+        }
+
+        private void ReservationSearchbox_MouseClick(object sender, MouseEventArgs e)
+        {
+            searchBtn.Enabled = true;
         }
 
         private void ReservationInfo_Load(object sender, EventArgs e)
@@ -160,14 +167,10 @@ namespace HotelApp
             clientNameCombobox.Text = ReservationGridView.SelectedRows[0].Cells[1].Value.ToString();
             roomIdCombobox.Text = ReservationGridView.SelectedRows[0].Cells[2].Value.ToString();
 
-            //dateIn.Value = ReservationGridView.SelectedRows[0].Cells[3]
-
             dateIn.Value = Convert.ToDateTime(ReservationGridView.SelectedRows[0].Cells[3].Value);
             dateOut.Value = Convert.ToDateTime(ReservationGridView.SelectedRows[0].Cells[4].Value);
 
-            _isTableSelected = true;
             editBtn.Enabled = true;
-
         }
 
         private void deleteRoomBtn_Click(object sender, EventArgs e)
@@ -223,6 +226,7 @@ namespace HotelApp
         private void refreshImageBtn_Click(object sender, EventArgs e)
         {
             Populate();
+            reservationSearchbox.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -315,6 +319,19 @@ namespace HotelApp
             MainForm mainForm = new MainForm();
             mainForm.Show();
             this.Hide();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            string query = "SELECT * FROM Reservation_tbl WHERE ResId = '" + reservationId.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            ReservationGridView.DataSource = ds.Tables[0];
+
+            conn.Close();
         }
     }
 }

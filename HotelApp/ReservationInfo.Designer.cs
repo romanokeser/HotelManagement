@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationInfo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateOut = new System.Windows.Forms.DateTimePicker();
             this.refreshImageBtn = new System.Windows.Forms.PictureBox();
-            this.roomSearchBtn = new System.Windows.Forms.Button();
             this.reservationSearchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.ReservationGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.clientNameCombobox = new System.Windows.Forms.ComboBox();
@@ -53,6 +52,8 @@
             this.editBtn = new Guna.UI2.WinForms.Guna2Button();
             this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
             this.BackBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReservationGridView)).BeginInit();
@@ -141,7 +142,7 @@
             // refreshImageBtn
             // 
             this.refreshImageBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshImageBtn.Image")));
-            this.refreshImageBtn.Location = new System.Drawing.Point(600, 80);
+            this.refreshImageBtn.Location = new System.Drawing.Point(599, 97);
             this.refreshImageBtn.Name = "refreshImageBtn";
             this.refreshImageBtn.Size = new System.Drawing.Size(24, 30);
             this.refreshImageBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -149,21 +150,10 @@
             this.refreshImageBtn.TabStop = false;
             this.refreshImageBtn.Click += new System.EventHandler(this.refreshImageBtn_Click);
             // 
-            // roomSearchBtn
-            // 
-            this.roomSearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomSearchBtn.Location = new System.Drawing.Point(505, 80);
-            this.roomSearchBtn.Name = "roomSearchBtn";
-            this.roomSearchBtn.Size = new System.Drawing.Size(89, 30);
-            this.roomSearchBtn.TabIndex = 29;
-            this.roomSearchBtn.Text = "Search";
-            this.roomSearchBtn.UseVisualStyleBackColor = true;
-            this.roomSearchBtn.Click += new System.EventHandler(this.roomSearchBtn_Click);
-            // 
             // reservationSearchbox
             // 
             this.reservationSearchbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.reservationSearchbox.DefaultText = "RoomSearch";
+            this.reservationSearchbox.DefaultText = "";
             this.reservationSearchbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.reservationSearchbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.reservationSearchbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -171,7 +161,7 @@
             this.reservationSearchbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.reservationSearchbox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.reservationSearchbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.reservationSearchbox.Location = new System.Drawing.Point(322, 80);
+            this.reservationSearchbox.Location = new System.Drawing.Point(234, 97);
             this.reservationSearchbox.Name = "reservationSearchbox";
             this.reservationSearchbox.PasswordChar = '\0';
             this.reservationSearchbox.PlaceholderText = "";
@@ -184,26 +174,26 @@
             this.ReservationGridView.AllowUserToAddRows = false;
             this.ReservationGridView.AllowUserToDeleteRows = false;
             this.ReservationGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.ReservationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ReservationGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.ReservationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ReservationGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ReservationGridView.ColumnHeadersHeight = 24;
             this.ReservationGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ReservationGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ReservationGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.ReservationGridView.GridColor = System.Drawing.Color.Black;
             this.ReservationGridView.Location = new System.Drawing.Point(234, 152);
             this.ReservationGridView.Name = "ReservationGridView";
@@ -337,11 +327,37 @@
             this.BackBtn.Text = "Back";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
+            // searchBtn
+            // 
+            this.searchBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.searchBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.searchBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.searchBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(437, 97);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(140, 30);
+            this.searchBtn.TabIndex = 47;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(231, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Search room";
+            // 
             // ReservationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 665);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
@@ -352,7 +368,6 @@
             this.Controls.Add(this.roomIdCombobox);
             this.Controls.Add(this.clientNameCombobox);
             this.Controls.Add(this.refreshImageBtn);
-            this.Controls.Add(this.roomSearchBtn);
             this.Controls.Add(this.reservationSearchbox);
             this.Controls.Add(this.ReservationGridView);
             this.Controls.Add(this.label2);
@@ -386,7 +401,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateOut;
         private System.Windows.Forms.PictureBox refreshImageBtn;
-        private System.Windows.Forms.Button roomSearchBtn;
         private Guna.UI2.WinForms.Guna2TextBox reservationSearchbox;
         private Guna.UI2.WinForms.Guna2DataGridView ReservationGridView;
         private System.Windows.Forms.ComboBox clientNameCombobox;
@@ -398,5 +412,7 @@
         private Guna.UI2.WinForms.Guna2Button editBtn;
         private Guna.UI2.WinForms.Guna2Button deleteBtn;
         private Guna.UI2.WinForms.Guna2Button BackBtn;
+        private Guna.UI2.WinForms.Guna2Button searchBtn;
+        private System.Windows.Forms.Label label5;
     }
 }

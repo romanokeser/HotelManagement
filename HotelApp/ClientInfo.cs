@@ -19,22 +19,21 @@ namespace HotelApp
         private Font _boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
         private Font _regularFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
 
-        private bool _isTableClicked;
-
         public ClientInfo()
         {
             InitializeComponent();
+
             editBtn.Enabled = false;
             delBtn.Enabled = false;
-
+            searchBtn.Enabled = false;
 
             ClientGridView.CellClick += ClientGridView_CellContentClick;
-            ClientGridView.Leave += ClientGridView_Leave;
+            clientSearch.MouseClick += ClientSearch_MouseClick;
         }
 
-        private void ClientGridView_Leave(object sender, EventArgs e)
+        private void ClientSearch_MouseClick(object sender, MouseEventArgs e)
         {
-            _isTableClicked = true;
+            searchBtn.Enabled = true;
         }
 
         public void Populate()
@@ -57,7 +56,6 @@ namespace HotelApp
 
         private void ClientInfo_Load(object sender, EventArgs e)
         {
-            //dateLabel.Text = DateTime.Now.ToLongDateString();
             dateLabel.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
             Populate();
         }
@@ -72,7 +70,6 @@ namespace HotelApp
             editBtn.Enabled = true;
             delBtn.Enabled = true;
 
-            _isTableClicked = true;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -106,13 +103,7 @@ namespace HotelApp
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Populate();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-            this.Hide();
+            clientSearch.Text = "";
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -127,20 +118,17 @@ namespace HotelApp
             {
                 label3.Font = _boldFont;
                 conn.Close();
-                //return;
             }
-
             if (string.IsNullOrEmpty(clientPhoneTextbox.Text))
             {
                 label4.Font = _boldFont;
                 conn.Close();
-                //return;
             }
-
             if (clientCtry.SelectedIndex <= 0)
             {
                 conn.Close();
             }
+
             try
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO Client_tbl VALUES('"
@@ -157,6 +145,7 @@ namespace HotelApp
             {
                 MessageBox.Show("Fill all required fields!");
                 ShowComboboxCRT();
+                conn.Close();
                 clientCtry.DroppedDown = true;
             }
         }
@@ -183,7 +172,6 @@ namespace HotelApp
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-
             conn.Open();
             string query = "DELETE FROM Client_tbl WHERE ClientId = " + clientIdTextbox.Text + "";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -191,9 +179,26 @@ namespace HotelApp
             MessageBox.Show("Client succesfully deleted");
             conn.Close();
             Populate();
+        }
 
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+        }
 
+        private void searchBtn_Click_1(object sender, EventArgs e)
+        {
+            conn.Open();
+            string query = "SELECT * FROM Client_tbl WHERE ClientName = '" + clientSearch.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            ClientGridView.DataSource = ds.Tables[0];
 
+            conn.Close();
         }
     }
 }

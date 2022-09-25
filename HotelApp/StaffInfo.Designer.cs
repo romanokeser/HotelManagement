@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffInfo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateLabel = new System.Windows.Forms.Label();
@@ -43,17 +43,18 @@
             this.staffGender = new System.Windows.Forms.ComboBox();
             this.StaffGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.refreshImageBtn = new System.Windows.Forms.PictureBox();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.staffSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
             this.staffPassTextbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.editBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
@@ -100,14 +101,14 @@
             // 
             // staffNameTextbox
             // 
-            this.staffNameTextbox.Location = new System.Drawing.Point(27, 162);
+            this.staffNameTextbox.Location = new System.Drawing.Point(27, 160);
             this.staffNameTextbox.Name = "staffNameTextbox";
             this.staffNameTextbox.Size = new System.Drawing.Size(161, 20);
             this.staffNameTextbox.TabIndex = 13;
             // 
             // staffNumberTextbox
             // 
-            this.staffNumberTextbox.Location = new System.Drawing.Point(27, 230);
+            this.staffNumberTextbox.Location = new System.Drawing.Point(27, 211);
             this.staffNumberTextbox.Name = "staffNumberTextbox";
             this.staffNumberTextbox.Size = new System.Drawing.Size(161, 20);
             this.staffNumberTextbox.TabIndex = 14;
@@ -118,7 +119,7 @@
             this.staffGender.Items.AddRange(new object[] {
             "MALE",
             "FEMALE"});
-            this.staffGender.Location = new System.Drawing.Point(27, 313);
+            this.staffGender.Location = new System.Drawing.Point(27, 303);
             this.staffGender.Name = "staffGender";
             this.staffGender.Size = new System.Drawing.Size(161, 21);
             this.staffGender.TabIndex = 15;
@@ -126,29 +127,34 @@
             // 
             // StaffGridView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.StaffGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StaffGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.StaffGridView.AllowUserToAddRows = false;
+            this.StaffGridView.AllowUserToDeleteRows = false;
+            this.StaffGridView.AllowUserToOrderColumns = true;
+            this.StaffGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.StaffGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StaffGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.StaffGridView.ColumnHeadersHeight = 24;
             this.StaffGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StaffGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.StaffGridView.GridColor = System.Drawing.Color.Black;
             this.StaffGridView.Location = new System.Drawing.Point(285, 116);
             this.StaffGridView.Name = "StaffGridView";
+            this.StaffGridView.ReadOnly = true;
             this.StaffGridView.RowHeadersVisible = false;
             this.StaffGridView.Size = new System.Drawing.Size(478, 432);
             this.StaffGridView.TabIndex = 16;
@@ -165,7 +171,7 @@
             this.StaffGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.StaffGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.StaffGridView.ThemeStyle.HeaderStyle.Height = 24;
-            this.StaffGridView.ThemeStyle.ReadOnly = false;
+            this.StaffGridView.ThemeStyle.ReadOnly = true;
             this.StaffGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.StaffGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.StaffGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -186,21 +192,10 @@
             this.refreshImageBtn.TabStop = false;
             this.refreshImageBtn.Click += new System.EventHandler(this.refreshImageBtn_Click);
             // 
-            // searchBtn
-            // 
-            this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.Location = new System.Drawing.Point(546, 80);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(89, 30);
-            this.searchBtn.TabIndex = 18;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.UseVisualStyleBackColor = true;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
-            // 
             // staffSearch
             // 
             this.staffSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.staffSearch.DefaultText = "Client name";
+            this.staffSearch.DefaultText = "";
             this.staffSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.staffSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.staffSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -208,7 +203,7 @@
             this.staffSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.staffSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.staffSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.staffSearch.Location = new System.Drawing.Point(336, 80);
+            this.staffSearch.Location = new System.Drawing.Point(285, 80);
             this.staffSearch.Name = "staffSearch";
             this.staffSearch.PasswordChar = '\0';
             this.staffSearch.PlaceholderText = "";
@@ -216,42 +211,9 @@
             this.staffSearch.Size = new System.Drawing.Size(161, 30);
             this.staffSearch.TabIndex = 17;
             // 
-            // deleteBtn
-            // 
-            this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteBtn.Location = new System.Drawing.Point(58, 416);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(89, 52);
-            this.deleteBtn.TabIndex = 22;
-            this.deleteBtn.Text = "delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // editBtn
-            // 
-            this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.Location = new System.Drawing.Point(115, 358);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(89, 52);
-            this.editBtn.TabIndex = 21;
-            this.editBtn.Text = "EDIT";
-            this.editBtn.UseVisualStyleBackColor = true;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.Location = new System.Drawing.Point(2, 358);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(89, 52);
-            this.addBtn.TabIndex = 20;
-            this.addBtn.Text = "ADD";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
             // staffPassTextbox
             // 
-            this.staffPassTextbox.Location = new System.Drawing.Point(27, 278);
+            this.staffPassTextbox.Location = new System.Drawing.Point(27, 259);
             this.staffPassTextbox.Name = "staffPassTextbox";
             this.staffPassTextbox.Size = new System.Drawing.Size(160, 20);
             this.staffPassTextbox.TabIndex = 23;
@@ -278,7 +240,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 146);
+            this.label2.Location = new System.Drawing.Point(26, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 43;
@@ -287,7 +249,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 214);
+            this.label4.Location = new System.Drawing.Point(26, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 44;
@@ -296,28 +258,98 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 262);
+            this.label5.Location = new System.Drawing.Point(26, 243);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 45;
             this.label5.Text = "Personal password";
+            // 
+            // addBtn
+            // 
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Location = new System.Drawing.Point(27, 358);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(140, 30);
+            this.addBtn.TabIndex = 46;
+            this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
+            // 
+            // editBtn
+            // 
+            this.editBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.editBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.editBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.editBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(27, 404);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(140, 30);
+            this.editBtn.TabIndex = 47;
+            this.editBtn.Text = "Edit";
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click_1);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.deleteBtn.ForeColor = System.Drawing.Color.White;
+            this.deleteBtn.Location = new System.Drawing.Point(27, 452);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(140, 30);
+            this.deleteBtn.TabIndex = 48;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(282, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "Staff\'s name";
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.searchBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.searchBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.searchBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(463, 80);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(140, 30);
+            this.searchBtn.TabIndex = 50;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click_1);
             // 
             // StaffInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.editBtn);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.staffPassTextbox);
-            this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.editBtn);
-            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.refreshImageBtn);
-            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.staffSearch);
             this.Controls.Add(this.StaffGridView);
             this.Controls.Add(this.staffGender);
@@ -350,16 +382,17 @@
         private System.Windows.Forms.ComboBox staffGender;
         private Guna.UI2.WinForms.Guna2DataGridView StaffGridView;
         private System.Windows.Forms.PictureBox refreshImageBtn;
-        private System.Windows.Forms.Button searchBtn;
         private Guna.UI2.WinForms.Guna2TextBox staffSearch;
-        private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox staffPassTextbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button addBtn;
+        private Guna.UI2.WinForms.Guna2Button editBtn;
+        private Guna.UI2.WinForms.Guna2Button deleteBtn;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2Button searchBtn;
     }
 }
