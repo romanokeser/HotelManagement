@@ -38,7 +38,7 @@ namespace HotelApp
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("INSERT INTO Staff_tbl VALUES('"
-                + staffIdTextbox.Text + "','"
+                //+ staffIdTextbox.Text + "','"
                 + staffNameTextbox.Text + "','"
                 + staffNumberTextbox.Text + "','"
                 + staffGender.SelectedItem.ToString()  + "','"

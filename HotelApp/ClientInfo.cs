@@ -45,22 +45,6 @@ namespace HotelApp
             Populate();
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("INSERT INTO Client_tbl VALUES('"
-                + clientIdTextbox.Text + "','"
-                + clientNameTextbox.Text + "','"
-                + clientPhoneTextbox.Text + "','"
-                + clientCtry.SelectedItem.ToString() + "')", conn);
-
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Client added succesfully");
-            conn.Close();
-            Populate();
-        }
-
         private void ClientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             clientIdTextbox.Text = ClientGridView.SelectedRows[0].Cells[0].Value.ToString();
@@ -79,18 +63,6 @@ namespace HotelApp
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Client succesfully edited");
-            conn.Close();
-            Populate();
-        }
-
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            string query = "DELETE FROM Client_tbl WHERE ClientId = " + clientIdTextbox.Text + "";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Client succesfully deleted");
             conn.Close();
             Populate();
         }
@@ -118,6 +90,49 @@ namespace HotelApp
             MainForm mainForm = new MainForm();
             mainForm.Show();
             this.Hide();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Client_tbl VALUES('"
+                //+ clientIdTextbox.Text + "','"
+                + clientNameTextbox.Text + "','"
+                + clientPhoneTextbox.Text + "','"
+                + clientCtry.SelectedItem.ToString() + "')", conn);
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Client added succesfully");
+            conn.Close();
+            Populate();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            string query = "UPDATE Client_tbl SET ClientName = '" + clientNameTextbox.Text
+                + "', ClientPhone = '" + clientPhoneTextbox.Text
+                + "', ClientCountry= '" + clientCtry.SelectedItem.ToString()
+                + "' WHERE ClientId = " + clientIdTextbox.Text + ";";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Client succesfully edited");
+            conn.Close();
+            Populate();
+        }
+
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            string query = "DELETE FROM Client_tbl WHERE ClientId = " + clientIdTextbox.Text + "";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Client succesfully deleted");
+            conn.Close();
+            Populate();
         }
     }
 }

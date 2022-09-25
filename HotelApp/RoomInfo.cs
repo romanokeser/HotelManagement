@@ -15,38 +15,43 @@ namespace HotelApp
     {
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
 
+        private Font boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
+        private Font regularFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
+
+        private bool _isTableSelected;
 
         public RoomInfo()
         {
             InitializeComponent();
             Populate();
+
+            RoomsDropbox.Text = "Rooms";
+            RoomsDropbox.SelectedIndex = 1;
+
+            RoomGridView.CellClick += RoomGridView_CellClick;
+            editBtn.Enabled = false;
         }
 
-        private void addRoomBtn_Click(object sender, EventArgs e)
+        /// Show content from grid view to textfields
+        private void RoomGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            conn.Open();
-            string isFree;
-            if (yesRadio.Checked == true)
-                isFree = "free";
-            else
-                isFree = "busy";
-
-            //if (noRadio.Checked == true)
-            //    isFree = "free";
-            //else
-            //    isFree = "busy";
-
-            SqlCommand cmd = new SqlCommand("INSERT INTO Room_tbl VALUES('"
-                //+ roomNumber.Text + "','"
-                + roomPhone.Text + "','"
-                + isFree + "')", conn);
-
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Client added succesfully");
-            conn.Close();
-            Populate();
+            roomNumber.Text = RoomGridView.SelectedRows[0].Cells[0].Value.ToString();
+            roomPhone.Text = RoomGridView.SelectedRows[0].Cells[1].Value.ToString();
+            _isTableSelected = true;
+            editBtn.Enabled = true;
         }
 
+        /// Subscribe to room search event
+        private void RoomsDropbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RoomsDropbox.TextChanged += roomSearchBtn_Click;
+            RoomsDropbox.SelectedIndexChanged += roomSearchBtn_Click;
+        }
+
+        /// <summary>
+        /// Refresh the grid view
+        /// Called after each action add/edit/delete/on show view
+        /// </summary>
         public void Populate()
         {
             conn.Open();
@@ -61,48 +66,9 @@ namespace HotelApp
             conn.Close();
         }
 
-        private void RoomGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            roomNumber.Text = RoomGridView.SelectedRows[0].Cells[0].Value.ToString();
-            roomPhone.Text = RoomGridView.SelectedRows[0].Cells[1].Value.ToString();
-        }
-
-        private void deleteRoomBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            string query = "DELETE FROM Room_tbl WHERE RoomId = " + roomNumber.Text + "";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Staff succesfully deleted");
-            conn.Close();
-            Populate();
-        }
-
-        private void editRoomBtn_Click(object sender, EventArgs e)
-        {
-            string isFree;
-            if (yesRadio.Checked == true)
-                isFree = "free";
-            else
-                isFree = "busy";
-
-            conn.Open();
-
-            string query = "UPDATE Room_tbl SET RoomPhone = '" + roomPhone.Text
-                + "', RoomFree = '" + isFree
-                + "' WHERE RoomId = " + roomNumber.Text + ";";
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Staff succesfully edited");
-            conn.Close();
-            Populate();
-        }
-
         private void roomSearchBtn_Click(object sender, EventArgs e)
         {
-            RoomsDropbox.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);
+            RoomsDropbox.Font = regularFont;
             if (RoomsDropbox.SelectedItem != null)
             {
                 conn.Open();
@@ -116,18 +82,87 @@ namespace HotelApp
             }
             else
             {
-                RoomsDropbox.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
+                RoomsDropbox.Font = boldFont;
             }
-            
-
         }
 
         private void refreshImageBtn_Click(object sender, EventArgs e)
         {
+            RoomsDropbox.Text = "Rooms";
             Populate();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            if (roomPhone.Text.Length == 0)
+            {
+                roomsNumberLabel.Font = boldFont;
+            }
+            else
+            {
+                conn.Open();
+                roomsNumberLabel.Font = regularFont;
+                string isFree;
+                if (yesRadio.Checked == true)
+                    isFree = "busy";
+                else
+                    isFree = "free";
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO Room_tbl VALUES('"
+                    + roomPhone.Text + "','"
+                    + isFree + "')", conn);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Client added succesfully");
+                conn.Close();
+                Populate();
+            }
+        }
+
+        //todo: check if table is selected => then enable the button
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            if (!_isTableSelected)
+            {
+                roomsNumberLabel.Font = boldFont;
+            }
+            else
+            {
+                roomsNumberLabel.Font = regularFont;
+                string isFree;
+                if (yesRadio.Checked == true)
+                    isFree = "busy";
+                else
+                    isFree = "free";
+
+                conn.Open();
+
+                string query = "UPDATE Room_tbl SET RoomPhone = '" + roomPhone.Text
+                    + "', RoomFree = '" + isFree
+                    + "' WHERE RoomId = " + roomNumber.Text + ";";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Staff succesfully edited");
+                conn.Close();
+                Populate();
+            }
+        }
+
+        //todo: check if table is selected => then enable the button
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            string query = "DELETE FROM Room_tbl WHERE RoomId = " + roomNumber.Text + "";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Staff succesfully deleted");
+            conn.Close();
+            Populate();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
         {
             MainForm mainForm = new MainForm();
             mainForm.Show();

@@ -82,7 +82,7 @@ namespace HotelApp
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("INSERT INTO Reservation_tbl VALUES('"
-                + reservationId.Text + "','"
+                //+ reservationId.Text + "','"
                 + clientNameCombobox.SelectedValue.ToString() + "','"
                 + roomIdCombobox.SelectedValue.ToString() + "','"
                 + dateIn.Value + "','"
@@ -211,6 +211,75 @@ namespace HotelApp
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Reservation_tbl VALUES('"
+                //+ reservationId.Text + "','"
+                + clientNameCombobox.SelectedValue.ToString() + "','"
+                + roomIdCombobox.SelectedValue.ToString() + "','"
+                + dateIn.Value + "','"
+                + dateOut.Value + "')", conn);
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Reservation added succesfully");
+            conn.Close();
+            UpdateRoomState();
+            Populate();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            if (reservationId.Text == "")
+            {
+                MessageBox.Show("Empty ResId, Enter the reservation ID");
+            }
+            else
+            {
+                conn.Open();
+
+                string query = "UPDATE Reservation_tbl SET Client = '" + clientNameCombobox.SelectedValue.ToString()
+                    //+ "', ResId = '" + roomIdCombobox.SelectedValue.ToString()
+                    + "', DateIn= '" + dateIn.Value.ToString()
+                    + "', DateOut= '" + dateOut.Value.ToString()
+                    + "' WHERE ResId = " + reservationId.Text + ";";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Reservation succesfully edited");
+                conn.Close();
+                Populate();
+            }
+        }
+
+        //Delete btn
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (reservationId.Text == "")
+            {
+                MessageBox.Show("Enter reservation to be deleted");
+            }
+            else
+            {
+                conn.Open();
+
+                string query = "DELETE FROM Reservation_tbl WHERE ResId = " + reservationId.Text + "";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Reservation succesfully deleted");
+                conn.Close();
+                UpdateRoomDelete();
+                Populate();
+            }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
         {
             MainForm mainForm = new MainForm();
             mainForm.Show();

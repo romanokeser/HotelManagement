@@ -44,15 +44,15 @@
             this.roomSearchBtn = new System.Windows.Forms.Button();
             this.reservationSearchbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.ReservationGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.deleteRoomBtn = new System.Windows.Forms.Button();
-            this.editRoomBtn = new System.Windows.Forms.Button();
-            this.addRoomBtn = new System.Windows.Forms.Button();
             this.clientNameCombobox = new System.Windows.Forms.ComboBox();
             this.roomIdCombobox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.addBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.editBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.deleteBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.BackBtn = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReservationGridView)).BeginInit();
@@ -91,6 +91,7 @@
             // 
             // reservationId
             // 
+            this.reservationId.Enabled = false;
             this.reservationId.Location = new System.Drawing.Point(22, 113);
             this.reservationId.Name = "reservationId";
             this.reservationId.Size = new System.Drawing.Size(167, 20);
@@ -199,7 +200,7 @@
             this.ReservationGridView.Location = new System.Drawing.Point(322, 152);
             this.ReservationGridView.Name = "ReservationGridView";
             this.ReservationGridView.RowHeadersVisible = false;
-            this.ReservationGridView.Size = new System.Drawing.Size(478, 426);
+            this.ReservationGridView.Size = new System.Drawing.Size(478, 472);
             this.ReservationGridView.TabIndex = 27;
             this.ReservationGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.ReservationGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -224,39 +225,6 @@
             this.ReservationGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.ReservationGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ReservationGridView_CellContentClick);
             // 
-            // deleteRoomBtn
-            // 
-            this.deleteRoomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteRoomBtn.Location = new System.Drawing.Point(25, 482);
-            this.deleteRoomBtn.Name = "deleteRoomBtn";
-            this.deleteRoomBtn.Size = new System.Drawing.Size(89, 52);
-            this.deleteRoomBtn.TabIndex = 34;
-            this.deleteRoomBtn.Text = "delete";
-            this.deleteRoomBtn.UseVisualStyleBackColor = true;
-            this.deleteRoomBtn.Click += new System.EventHandler(this.deleteRoomBtn_Click);
-            // 
-            // editRoomBtn
-            // 
-            this.editRoomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editRoomBtn.Location = new System.Drawing.Point(146, 394);
-            this.editRoomBtn.Name = "editRoomBtn";
-            this.editRoomBtn.Size = new System.Drawing.Size(89, 52);
-            this.editRoomBtn.TabIndex = 33;
-            this.editRoomBtn.Text = "EDIT";
-            this.editRoomBtn.UseVisualStyleBackColor = true;
-            this.editRoomBtn.Click += new System.EventHandler(this.editRoomBtn_Click);
-            // 
-            // addRoomBtn
-            // 
-            this.addRoomBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addRoomBtn.Location = new System.Drawing.Point(25, 394);
-            this.addRoomBtn.Name = "addRoomBtn";
-            this.addRoomBtn.Size = new System.Drawing.Size(89, 52);
-            this.addRoomBtn.TabIndex = 32;
-            this.addRoomBtn.Text = "ADD";
-            this.addRoomBtn.UseVisualStyleBackColor = true;
-            this.addRoomBtn.Click += new System.EventHandler(this.addRoomBtn_Click);
-            // 
             // clientNameCombobox
             // 
             this.clientNameCombobox.FormattingEnabled = true;
@@ -272,16 +240,6 @@
             this.roomIdCombobox.Name = "roomIdCombobox";
             this.roomIdCombobox.Size = new System.Drawing.Size(167, 21);
             this.roomIdCombobox.TabIndex = 36;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 614);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 42);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -310,20 +268,80 @@
             this.label8.TabIndex = 42;
             this.label8.Text = "Room number";
             // 
+            // addBtn
+            // 
+            this.addBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Location = new System.Drawing.Point(22, 358);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(140, 30);
+            this.addBtn.TabIndex = 43;
+            this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // editBtn
+            // 
+            this.editBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.editBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.editBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.editBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(22, 403);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(140, 30);
+            this.editBtn.TabIndex = 44;
+            this.editBtn.Text = "Edit";
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.deleteBtn.ForeColor = System.Drawing.Color.White;
+            this.deleteBtn.Location = new System.Drawing.Point(22, 461);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(140, 30);
+            this.deleteBtn.TabIndex = 45;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // BackBtn
+            // 
+            this.BackBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BackBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BackBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BackBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BackBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BackBtn.ForeColor = System.Drawing.Color.White;
+            this.BackBtn.Location = new System.Drawing.Point(22, 509);
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.Size = new System.Drawing.Size(140, 30);
+            this.BackBtn.TabIndex = 46;
+            this.BackBtn.Text = "Back";
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
             // ReservationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.BackBtn);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.editBtn);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.roomIdCombobox);
             this.Controls.Add(this.clientNameCombobox);
-            this.Controls.Add(this.deleteRoomBtn);
-            this.Controls.Add(this.editRoomBtn);
-            this.Controls.Add(this.addRoomBtn);
             this.Controls.Add(this.refreshImageBtn);
             this.Controls.Add(this.roomSearchBtn);
             this.Controls.Add(this.reservationSearchbox);
@@ -362,14 +380,14 @@
         private System.Windows.Forms.Button roomSearchBtn;
         private Guna.UI2.WinForms.Guna2TextBox reservationSearchbox;
         private Guna.UI2.WinForms.Guna2DataGridView ReservationGridView;
-        private System.Windows.Forms.Button deleteRoomBtn;
-        private System.Windows.Forms.Button editRoomBtn;
-        private System.Windows.Forms.Button addRoomBtn;
         private System.Windows.Forms.ComboBox clientNameCombobox;
         private System.Windows.Forms.ComboBox roomIdCombobox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2Button addBtn;
+        private Guna.UI2.WinForms.Guna2Button editBtn;
+        private Guna.UI2.WinForms.Guna2Button deleteBtn;
+        private Guna.UI2.WinForms.Guna2Button BackBtn;
     }
 }

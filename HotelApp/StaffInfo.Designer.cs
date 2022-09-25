@@ -50,6 +50,10 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.staffPassTextbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
@@ -63,14 +67,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 165);
+            this.panel1.Size = new System.Drawing.Size(800, 53);
             this.panel1.TabIndex = 1;
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(494, 126);
+            this.dateLabel.Location = new System.Drawing.Point(618, 25);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(48, 20);
             this.dateLabel.TabIndex = 1;
@@ -80,7 +84,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(190, 55);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(288, 39);
             this.label1.TabIndex = 0;
@@ -88,21 +92,22 @@
             // 
             // staffIdTextbox
             // 
-            this.staffIdTextbox.Location = new System.Drawing.Point(76, 220);
+            this.staffIdTextbox.Enabled = false;
+            this.staffIdTextbox.Location = new System.Drawing.Point(27, 96);
             this.staffIdTextbox.Name = "staffIdTextbox";
             this.staffIdTextbox.Size = new System.Drawing.Size(161, 20);
             this.staffIdTextbox.TabIndex = 12;
             // 
             // staffNameTextbox
             // 
-            this.staffNameTextbox.Location = new System.Drawing.Point(76, 286);
+            this.staffNameTextbox.Location = new System.Drawing.Point(27, 162);
             this.staffNameTextbox.Name = "staffNameTextbox";
             this.staffNameTextbox.Size = new System.Drawing.Size(161, 20);
             this.staffNameTextbox.TabIndex = 13;
             // 
             // staffNumberTextbox
             // 
-            this.staffNumberTextbox.Location = new System.Drawing.Point(76, 354);
+            this.staffNumberTextbox.Location = new System.Drawing.Point(27, 230);
             this.staffNumberTextbox.Name = "staffNumberTextbox";
             this.staffNumberTextbox.Size = new System.Drawing.Size(161, 20);
             this.staffNumberTextbox.TabIndex = 14;
@@ -113,7 +118,7 @@
             this.staffGender.Items.AddRange(new object[] {
             "MALE",
             "FEMALE"});
-            this.staffGender.Location = new System.Drawing.Point(76, 437);
+            this.staffGender.Location = new System.Drawing.Point(27, 313);
             this.staffGender.Name = "staffGender";
             this.staffGender.Size = new System.Drawing.Size(161, 21);
             this.staffGender.TabIndex = 15;
@@ -142,10 +147,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StaffGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.StaffGridView.GridColor = System.Drawing.Color.Black;
-            this.StaffGridView.Location = new System.Drawing.Point(290, 230);
+            this.StaffGridView.Location = new System.Drawing.Point(285, 116);
             this.StaffGridView.Name = "StaffGridView";
             this.StaffGridView.RowHeadersVisible = false;
-            this.StaffGridView.Size = new System.Drawing.Size(478, 350);
+            this.StaffGridView.Size = new System.Drawing.Size(478, 432);
             this.StaffGridView.TabIndex = 16;
             this.StaffGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.StaffGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -173,7 +178,7 @@
             // refreshImageBtn
             // 
             this.refreshImageBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshImageBtn.Image")));
-            this.refreshImageBtn.Location = new System.Drawing.Point(642, 184);
+            this.refreshImageBtn.Location = new System.Drawing.Point(642, 80);
             this.refreshImageBtn.Name = "refreshImageBtn";
             this.refreshImageBtn.Size = new System.Drawing.Size(24, 30);
             this.refreshImageBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,7 +189,7 @@
             // searchBtn
             // 
             this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.Location = new System.Drawing.Point(535, 184);
+            this.searchBtn.Location = new System.Drawing.Point(546, 80);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(89, 30);
             this.searchBtn.TabIndex = 18;
@@ -203,7 +208,7 @@
             this.staffSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.staffSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.staffSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.staffSearch.Location = new System.Drawing.Point(350, 184);
+            this.staffSearch.Location = new System.Drawing.Point(336, 80);
             this.staffSearch.Name = "staffSearch";
             this.staffSearch.PasswordChar = '\0';
             this.staffSearch.PlaceholderText = "";
@@ -214,7 +219,7 @@
             // deleteBtn
             // 
             this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteBtn.Location = new System.Drawing.Point(99, 572);
+            this.deleteBtn.Location = new System.Drawing.Point(58, 416);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(89, 52);
             this.deleteBtn.TabIndex = 22;
@@ -225,7 +230,7 @@
             // editBtn
             // 
             this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.Location = new System.Drawing.Point(164, 482);
+            this.editBtn.Location = new System.Drawing.Point(115, 358);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(89, 52);
             this.editBtn.TabIndex = 21;
@@ -236,7 +241,7 @@
             // addBtn
             // 
             this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.Location = new System.Drawing.Point(51, 482);
+            this.addBtn.Location = new System.Drawing.Point(2, 358);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(89, 52);
             this.addBtn.TabIndex = 20;
@@ -246,7 +251,7 @@
             // 
             // staffPassTextbox
             // 
-            this.staffPassTextbox.Location = new System.Drawing.Point(76, 402);
+            this.staffPassTextbox.Location = new System.Drawing.Point(27, 278);
             this.staffPassTextbox.Name = "staffPassTextbox";
             this.staffPassTextbox.Size = new System.Drawing.Size(160, 20);
             this.staffPassTextbox.TabIndex = 23;
@@ -261,11 +266,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Staff\'s ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 214);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Phone number";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 262);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Personal password";
+            // 
             // StaffInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 665);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.staffPassTextbox);
             this.Controls.Add(this.deleteBtn);
@@ -312,5 +357,9 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox staffPassTextbox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
