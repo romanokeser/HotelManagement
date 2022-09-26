@@ -59,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(654, 65);
+            this.label2.Location = new System.Drawing.Point(666, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 44);
             this.label2.TabIndex = 2;
@@ -117,7 +117,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(565, 272);
+            this.label5.Location = new System.Drawing.Point(542, 272);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(223, 44);
             this.label5.TabIndex = 8;
@@ -140,15 +140,15 @@
             // logoutBtn
             // 
             this.logoutBtn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.logoutBtn.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.logoutBtn.HoverState.ImageSize = new System.Drawing.Size(30, 30);
             this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
             this.logoutBtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.logoutBtn.ImageRotate = 0F;
             this.logoutBtn.ImageSize = new System.Drawing.Size(24, 24);
-            this.logoutBtn.Location = new System.Drawing.Point(367, 379);
+            this.logoutBtn.Location = new System.Drawing.Point(377, 386);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.logoutBtn.Size = new System.Drawing.Size(64, 59);
+            this.logoutBtn.Size = new System.Drawing.Size(35, 30);
             this.logoutBtn.TabIndex = 9;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
@@ -156,11 +156,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 9);
+            this.label1.Location = new System.Drawing.Point(284, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(439, 42);
+            this.label1.Size = new System.Drawing.Size(202, 42);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Administrative dashboard";
+            this.label1.Text = "Dashboard";
             // 
             // MainForm
             // 

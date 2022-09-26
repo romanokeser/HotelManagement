@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Collections;
 
 namespace HotelApp
 {
@@ -31,12 +26,10 @@ namespace HotelApp
             clientSearch.MouseClick += ClientSearch_MouseClick;
         }
 
-        private void ClientSearch_MouseClick(object sender, MouseEventArgs e)
-        {
-            searchBtn.Enabled = true;
-        }
 
-        public void Populate()
+        #region Functions
+
+        private void Populate()
         {
             conn.Open();
             string query = "SELECT * FROM Client_tbl";
@@ -49,64 +42,7 @@ namespace HotelApp
             conn.Close();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            dateLabel.Text = DateTime.Now.ToLongDateString();
-        }
-
-        private void ClientInfo_Load(object sender, EventArgs e)
-        {
-            dateLabel.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
-            Populate();
-        }
-
-        private void ClientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            clientIdTextbox.Text = ClientGridView.SelectedRows[0].Cells[0].Value.ToString();
-            clientNameTextbox.Text = ClientGridView.SelectedRows[0].Cells[1].Value.ToString();
-            clientPhoneTextbox.Text = ClientGridView.SelectedRows[0].Cells[2].Value.ToString();
-            clientCtry.Text = ClientGridView.SelectedRows[0].Cells[3].Value.ToString();
-
-            editBtn.Enabled = true;
-            delBtn.Enabled = true;
-
-        }
-
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            string query = "UPDATE Client_tbl SET ClientName = '" + clientNameTextbox.Text
-                + "', ClientPhone = '" + clientPhoneTextbox.Text
-                + "', ClientCountry= '" + clientCtry.SelectedItem.ToString()
-                + "' WHERE ClientId = " + clientIdTextbox.Text + ";";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Client succesfully edited");
-            conn.Close();
-            Populate();
-        }
-
-        private void searchBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            string query = "SELECT * FROM Client_tbl WHERE ClientName = '" + clientSearch.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, conn);
-            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-            var ds = new DataSet();
-            da.Fill(ds);
-            ClientGridView.DataSource = ds.Tables[0];
-
-            conn.Close();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Populate();
-            clientSearch.Text = "";
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void InsertToDb()
         {
             conn.Open();
 
@@ -150,13 +86,13 @@ namespace HotelApp
             }
         }
 
-        private void ShowComboboxCRT()
+        private void RefreshContent()
         {
-            Task.Delay(200).Wait();
-            clientCtry.DroppedDown = true;
+            Populate();
+            clientSearch.Text = "";
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void EditDb()
         {
             conn.Open();
             string query = "UPDATE Client_tbl SET ClientName = '" + clientNameTextbox.Text
@@ -170,7 +106,13 @@ namespace HotelApp
             Populate();
         }
 
-        private void delBtn_Click(object sender, EventArgs e)
+        private void ShowComboboxCRT()
+        {
+            Task.Delay(200).Wait();
+            clientCtry.DroppedDown = true;
+        }
+
+        private void DeleteFromDb()
         {
             conn.Open();
             string query = "DELETE FROM Client_tbl WHERE ClientId = " + clientIdTextbox.Text + "";
@@ -181,14 +123,14 @@ namespace HotelApp
             Populate();
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
+        private void GoBack()
         {
             MainForm mainForm = new MainForm();
             mainForm.Show();
             this.Hide();
         }
 
-        private void searchBtn_Click_1(object sender, EventArgs e)
+        private void SearchDb()
         {
             conn.Open();
             string query = "SELECT * FROM Client_tbl WHERE ClientName = '" + clientSearch.Text + "'";
@@ -200,5 +142,68 @@ namespace HotelApp
 
             conn.Close();
         }
+
+        #endregion
+
+        #region Components 
+
+        private void ClientSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            searchBtn.Enabled = true;
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            InsertToDb();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dateLabel.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void ClientInfo_Load(object sender, EventArgs e)
+        {
+            dateLabel.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
+            Populate();
+        }
+
+        private void ClientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clientIdTextbox.Text = ClientGridView.SelectedRows[0].Cells[0].Value.ToString();
+            clientNameTextbox.Text = ClientGridView.SelectedRows[0].Cells[1].Value.ToString();
+            clientPhoneTextbox.Text = ClientGridView.SelectedRows[0].Cells[2].Value.ToString();
+            clientCtry.Text = ClientGridView.SelectedRows[0].Cells[3].Value.ToString();
+
+            editBtn.Enabled = true;
+            delBtn.Enabled = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            RefreshContent();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            EditDb();
+        }
+
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+            DeleteFromDb();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            GoBack();
+        }
+
+        private void searchBtn_Click_1(object sender, EventArgs e)
+        {
+            SearchDb();
+        }
+
+        #endregion
     }
 }

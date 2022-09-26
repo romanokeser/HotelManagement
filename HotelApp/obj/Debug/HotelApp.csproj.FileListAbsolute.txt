@@ -48,3 +48,4 @@ F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.StaffInfo.resources
 F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.RoomInfo.resources
 F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.ReservationInfo.resources
 F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.SplashForm.resources
+F:\WindowsForm\HotelApp\HotelApp\obj\Debug\HotelApp.Statistics.resources

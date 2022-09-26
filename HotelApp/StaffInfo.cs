@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,11 +27,6 @@ namespace HotelApp
             staffSearch.MouseClick += StaffSearch_MouseClick;
         }
 
-        private void StaffSearch_MouseClick(object sender, MouseEventArgs e)
-        {
-            searchBtn.Enabled = true;
-        }
-
         private void StaffGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             staffIdTextbox.Text = StaffGridView.SelectedRows[0].Cells[0].Value.ToString();
@@ -48,6 +39,7 @@ namespace HotelApp
             deleteBtn.Enabled = true;
         }
 
+        #region Functions
         public void Populate()
         {
             conn.Open();
@@ -61,67 +53,13 @@ namespace HotelApp
             conn.Close();
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            string query = "UPDATE Staff_tbl SET StaffName = '" + staffNameTextbox.Text
-                + "', StaffPhone = '" + staffNumberTextbox.Text
-                + "', Gender = '" + staffGender.SelectedItem.ToString()
-                + "', StaffPassword = '" + staffPassTextbox.Text
-                + "' WHERE StaffId = " + staffIdTextbox.Text + ";";
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Staff succesfully edited");
-            conn.Close();
-            Populate();
-        }
-
-        private void StaffGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            string query = "DELETE FROM Staff_tbl WHERE StaffId = " + staffIdTextbox.Text + "";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Staff succesfully deleted");
-            conn.Close();
-            Populate();
-        }
-
-        private void searchBtn_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            string query = "SELECT * FROM Staff_tbl WHERE StaffName = '" + staffSearch.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, conn);
-            SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
-            var ds = new DataSet();
-            da.Fill(ds);
-            StaffGridView.DataSource = ds.Tables[0];
-
-            conn.Close();
-        }
-
-        private void refreshImageBtn_Click(object sender, EventArgs e)
+        private void RefreshContent()
         {
             Populate();
             staffSearch.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-            this.Hide();
-        }
-
-        private void addBtn_Click_1(object sender, EventArgs e)
+        private void ImportToDb()
         {
             conn.Open();
 
@@ -174,7 +112,7 @@ namespace HotelApp
             staffGender.DroppedDown = true;
         }
 
-        private void editBtn_Click_1(object sender, EventArgs e)
+        private void EditDb()
         {
             conn.Open();
 
@@ -189,9 +127,10 @@ namespace HotelApp
             MessageBox.Show("Staff succesfully edited");
             conn.Close();
             Populate();
+
         }
 
-        private void deleteBtn_Click_1(object sender, EventArgs e)
+        private void DeleteFromDb()
         {
             conn.Open();
 
@@ -201,9 +140,9 @@ namespace HotelApp
             MessageBox.Show("Staff succesfully deleted");
             conn.Close();
             Populate();
-        }
 
-        private void searchBtn_Click_1(object sender, EventArgs e)
+        }
+        private void SearchDb()
         {
             conn.Open();
             string query = "SELECT * FROM Staff_tbl WHERE StaffName = '" + staffSearch.Text + "'";
@@ -215,5 +154,53 @@ namespace HotelApp
 
             conn.Close();
         }
+
+        private void GoBack()
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+        }
+
+        #endregion
+
+        #region Components
+
+        private void refreshImageBtn_Click(object sender, EventArgs e)
+        {
+            RefreshContent();
+        }
+
+        private void addBtn_Click_1(object sender, EventArgs e)
+        {
+            ImportToDb();
+        }
+
+        private void editBtn_Click_1(object sender, EventArgs e)
+        {
+            EditDb();
+        }
+
+        private void deleteBtn_Click_1(object sender, EventArgs e)
+        {
+            DeleteFromDb();
+        }
+
+        private void searchBtn_Click_1(object sender, EventArgs e)
+        {
+            SearchDb();
+        }
+
+        private void goBackBtn_Click(object sender, EventArgs e)
+        {
+            GoBack();
+        }
+
+        private void StaffSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            searchBtn.Enabled = true;
+        }
+
+        #endregion
     }
 }

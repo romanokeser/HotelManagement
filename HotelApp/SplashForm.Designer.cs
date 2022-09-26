@@ -58,7 +58,6 @@
             this.splashPB.TabIndex = 2;
             this.splashPB.Text = "guna2CircleProgressBar1";
             this.splashPB.UseWaitCursor = true;
-            this.splashPB.ValueChanged += new System.EventHandler(this.splashPB_ValueChanged);
             // 
             // label1
             // 

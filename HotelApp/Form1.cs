@@ -19,16 +19,10 @@ namespace HotelApp
             InitializeComponent();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
+        #region Functions
 
-        private void closeAppBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void loginBtnNew_Click(object sender, EventArgs e)
+        //Checks user and pass
+        private void LoginToDb()
         {
             string loginSqlString = "SELECT COUNT(*) FROM Staff_tbl WHERE StaffName='" + userTextbox.Text + "' AND StaffPassword='" + passTexbox.Text + "'";
             conn.Open();
@@ -47,10 +41,17 @@ namespace HotelApp
             {
                 MessageBox.Show("Wrong username or password");
             }
-
-
             conn.Close();
         }
+
+        #endregion
+
+        private void loginBtnNew_Click(object sender, EventArgs e)
+        {
+            LoginToDb();
+        }
+
+        
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

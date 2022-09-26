@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -13,8 +8,6 @@ namespace HotelApp
 {
     public partial class RoomInfo : Form
     {
-        DateTime today;
-
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
 
         private Font boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
@@ -34,27 +27,7 @@ namespace HotelApp
             editBtn.Enabled = false;
         }
 
-        private void RoomInfo_Load(object sender, EventArgs e)
-        {
-            label3.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
-        }
-
-        /// Show content from grid view to textfields
-        private void RoomGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            roomNumber.Text = RoomGridView.SelectedRows[0].Cells[0].Value.ToString();
-            roomPhone.Text = RoomGridView.SelectedRows[0].Cells[1].Value.ToString();
-            roomsState.Text = RoomGridView.SelectedRows[0].Cells[2].Value.ToString();
-            _isTableSelected = true;
-            editBtn.Enabled = true;
-        }
-
-        /// Subscribe to room search event
-        private void RoomsDropbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RoomsDropbox.TextChanged += roomSearchBtn_Click;
-            RoomsDropbox.SelectedIndexChanged += roomSearchBtn_Click;
-        }
+        #region Functions
 
         /// <summary>
         /// Refresh the grid view
@@ -74,7 +47,8 @@ namespace HotelApp
             conn.Close();
         }
 
-        private void roomSearchBtn_Click(object sender, EventArgs e)
+        //Search room by the ID
+        private void SearchDb()
         {
             RoomsDropbox.Font = regularFont;
             if (RoomsDropbox.SelectedItem != null)
@@ -94,13 +68,14 @@ namespace HotelApp
             }
         }
 
-        private void refreshImageBtn_Click(object sender, EventArgs e)
+        private void RefreshContent()
         {
             RoomsDropbox.Text = "Rooms";
             Populate();
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        //import new content to DB
+        private void AddToDb()
         {
             if (roomPhone.Text.Length == 0)
             {
@@ -127,8 +102,8 @@ namespace HotelApp
             }
         }
 
-        //todo: check if table is selected => then enable the button
-        private void editBtn_Click(object sender, EventArgs e)
+        //edit selected item
+        private void EditFromDb()
         {
             if (!_isTableSelected)
             {
@@ -157,8 +132,8 @@ namespace HotelApp
             }
         }
 
-        //todo: check if table is selected => then enable the button
-        private void deleteBtn_Click(object sender, EventArgs e)
+        //delete selected item
+        private void DeleteFromDb()
         {
             conn.Open();
 
@@ -170,13 +145,69 @@ namespace HotelApp
             Populate();
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
+        private void GoBack()
         {
             MainForm mainForm = new MainForm();
             mainForm.Show();
             this.Hide();
         }
 
+        #endregion
 
+        #region Components
+
+        private void RoomInfo_Load(object sender, EventArgs e)
+        {
+            label3.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
+        }
+
+        /// Show content from grid view to textfields
+        private void RoomGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            roomNumber.Text = RoomGridView.SelectedRows[0].Cells[0].Value.ToString();
+            roomPhone.Text = RoomGridView.SelectedRows[0].Cells[1].Value.ToString();
+            roomsState.Text = RoomGridView.SelectedRows[0].Cells[2].Value.ToString();
+            _isTableSelected = true;
+            editBtn.Enabled = true;
+        }
+
+        /// Subscribe to room search event
+        private void RoomsDropbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RoomsDropbox.TextChanged += roomSearchBtn_Click;
+            RoomsDropbox.SelectedIndexChanged += roomSearchBtn_Click;
+        }
+
+        private void roomSearchBtn_Click(object sender, EventArgs e)
+        {
+            SearchDb();
+        }
+
+        private void refreshImageBtn_Click(object sender, EventArgs e)
+        {
+            RefreshContent();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            AddToDb();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            EditFromDb();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            DeleteFromDb();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            GoBack();
+        }
+
+        #endregion
     }
 }
