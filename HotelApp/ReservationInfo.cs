@@ -9,7 +9,9 @@ namespace HotelApp
     public partial class ReservationInfo : Form
     {
         DateTime today;
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
+
+
+        SqlConnection conn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Hoteldb.mdf;Integrated Security = True; Connect Timeout = 30");
 
         private Font boldFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
         private Font regularFont = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular);

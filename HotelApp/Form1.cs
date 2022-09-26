@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace HotelApp
 {
     public partial class LoginForm : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection conn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|\Hoteldb.mdf;Integrated Security = True; Connect Timeout = 30");
         MainForm mainForm = new MainForm();
 
         public static string StaffName;
@@ -29,6 +31,8 @@ namespace HotelApp
         private void LoginToDb()
         {
             string loginSqlString = "SELECT COUNT(*) FROM Staff_tbl WHERE StaffName='" + userTextbox.Text + "' AND StaffPassword='" + passTexbox.Text + "'";
+            
+            //conn.ConnectionString
             conn.Open();
 
             SqlDataAdapter sda = new SqlDataAdapter(loginSqlString, conn);
@@ -55,10 +59,7 @@ namespace HotelApp
         private void loginBtnNew_Click(object sender, EventArgs e)
         {
             LoginToDb();
-
         }
-
-
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

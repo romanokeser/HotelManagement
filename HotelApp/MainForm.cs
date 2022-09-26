@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace HotelApp
@@ -55,6 +56,10 @@ namespace HotelApp
         private void MainForm_Load(object sender, EventArgs e)
         {
             staffNameLabel.Text = LoginForm.StaffName;
+            string link = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            //connStringLabel.Text = ConfigurationManager.ConnectionStrings["Target"].ConnectionString;
+            connStringLabel.Text = link;
         }
     }
 }
