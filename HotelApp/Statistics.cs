@@ -21,6 +21,7 @@ namespace HotelApp
         {
             InitializeComponent();
             CountClients();
+            CountStaff();
         }
 
         private void FillPieChart()
@@ -64,6 +65,19 @@ namespace HotelApp
             conn.Close();
 
             clientCount.Text = clientsCount.ToString();
+        }
+
+        private void CountStaff()
+        {
+            conn.Open();
+
+            string query = "SELECT COUNT(*) StaffId FROM Staff_tbl";
+            SqlCommand sqlCommand = new SqlCommand(query);
+            sqlCommand.Connection = conn;
+            int clientsCount = Convert.ToInt32(sqlCommand.ExecuteScalar());
+            conn.Close();
+
+            staffCount.Text = clientsCount.ToString();
         }
 
         private void Statistics_Load(object sender, EventArgs e)

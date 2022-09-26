@@ -14,6 +14,10 @@ namespace HotelApp
     public partial class LoginForm : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Romano\Documents\Hoteldb.mdf;Integrated Security=True;Connect Timeout=30");
+        MainForm mainForm = new MainForm();
+
+        public static string StaffName;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -33,6 +37,8 @@ namespace HotelApp
 
             if (dt.Rows[0][0].ToString() == "1")
             {
+                StaffName = userTextbox.Text;
+
                 MainForm mf = new MainForm();
                 mf.Show();
                 this.Hide();
@@ -49,9 +55,10 @@ namespace HotelApp
         private void loginBtnNew_Click(object sender, EventArgs e)
         {
             LoginToDb();
+
         }
 
-        
+
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

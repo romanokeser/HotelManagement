@@ -202,5 +202,10 @@ namespace HotelApp
         }
 
         #endregion
+
+        private void StaffInfo_Load(object sender, EventArgs e)
+        {
+            dateLabel.Text = DateTime.Today.Day.ToString() + "-" + DateTime.Today.Month.ToString() + "-" + DateTime.Today.Year.ToString();
+        }
     }
 }

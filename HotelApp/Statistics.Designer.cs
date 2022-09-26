@@ -32,37 +32,27 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.roomsFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.clientCount = new System.Windows.Forms.Label();
             this.goBackBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.staffCount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomsFreeChart)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.dateLabel);
+            this.panel1.BackColor = System.Drawing.Color.DarkRed;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1038, 53);
+            this.panel1.Size = new System.Drawing.Size(530, 53);
             this.panel1.TabIndex = 2;
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(618, 25);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(48, 20);
-            this.dateLabel.TabIndex = 1;
-            this.dateLabel.Text = "Date";
             // 
             // label1
             // 
@@ -136,11 +126,33 @@
             this.goBackBtn.Text = "Back";
             this.goBackBtn.Click += new System.EventHandler(this.goBackBtn_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(15, 459);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 20);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Staff available:";
+            // 
+            // staffCount
+            // 
+            this.staffCount.AutoSize = true;
+            this.staffCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffCount.Location = new System.Drawing.Point(175, 459);
+            this.staffCount.Name = "staffCount";
+            this.staffCount.Size = new System.Drawing.Size(19, 20);
+            this.staffCount.TabIndex = 54;
+            this.staffCount.Text = "0";
+            // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 665);
+            this.ClientSize = new System.Drawing.Size(530, 665);
+            this.Controls.Add(this.staffCount);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.goBackBtn);
             this.Controls.Add(this.clientCount);
             this.Controls.Add(this.label3);
@@ -163,12 +175,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart roomsFreeChart;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label clientCount;
         private Guna.UI2.WinForms.Guna2Button goBackBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label staffCount;
     }
 }

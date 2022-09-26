@@ -42,7 +42,6 @@
             this.staffNumberTextbox = new System.Windows.Forms.TextBox();
             this.staffGender = new System.Windows.Forms.ComboBox();
             this.StaffGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.refreshImageBtn = new System.Windows.Forms.PictureBox();
             this.staffSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.staffPassTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.searchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.goBackBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.refreshImageBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshImageBtn)).BeginInit();
@@ -62,7 +62,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
             this.panel1.Controls.Add(this.dateLabel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -179,17 +179,6 @@
             this.StaffGridView.ThemeStyle.RowsStyle.Height = 22;
             this.StaffGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.StaffGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // refreshImageBtn
-            // 
-            this.refreshImageBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshImageBtn.Image")));
-            this.refreshImageBtn.Location = new System.Drawing.Point(642, 80);
-            this.refreshImageBtn.Name = "refreshImageBtn";
-            this.refreshImageBtn.Size = new System.Drawing.Size(24, 30);
-            this.refreshImageBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.refreshImageBtn.TabIndex = 19;
-            this.refreshImageBtn.TabStop = false;
-            this.refreshImageBtn.Click += new System.EventHandler(this.refreshImageBtn_Click);
             // 
             // staffSearch
             // 
@@ -337,6 +326,17 @@
             this.goBackBtn.Text = "Back";
             this.goBackBtn.Click += new System.EventHandler(this.goBackBtn_Click);
             // 
+            // refreshImageBtn
+            // 
+            this.refreshImageBtn.Image = ((System.Drawing.Image)(resources.GetObject("refreshImageBtn.Image")));
+            this.refreshImageBtn.Location = new System.Drawing.Point(642, 80);
+            this.refreshImageBtn.Name = "refreshImageBtn";
+            this.refreshImageBtn.Size = new System.Drawing.Size(24, 30);
+            this.refreshImageBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.refreshImageBtn.TabIndex = 19;
+            this.refreshImageBtn.TabStop = false;
+            this.refreshImageBtn.Click += new System.EventHandler(this.refreshImageBtn_Click);
+            // 
             // StaffInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,6 +365,7 @@
             this.Name = "StaffInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffInfo";
+            this.Load += new System.EventHandler(this.StaffInfo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).EndInit();
